@@ -271,7 +271,8 @@ button:hover{
 
     font-size:45px;
 
-    animation:sail 20s linear infinite;
+    animation: sail 20s linear infinite,
+           floatBoat 2.5s ease-in-out infinite;
 
     z-index:-1;
 
@@ -293,15 +294,39 @@ button:hover{
 
 }
 
+@keyframes floatBoat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
 /* Envelope */
 
 .envelope{
 
-    font-size:80px;
+    animation:bounce 2s infinite;
 
-    cursor:pointer;
+}
 
-    transition:.4s;
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
 
 }
 
@@ -314,37 +339,55 @@ button:hover{
 /* Letter */
 
 .letter{
-
-    background:white;
+    background:#fffdf7;
     color:#333;
-
     width:100%;
     max-width:600px;
+    margin:auto;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
 
-    margin:0 auto;
+.letterGif{
 
-    padding:30px;
+    width:110px;
 
-    border-radius:18px;
+    display:block;
 
-    line-height:1.8;
+    margin:20px auto 0;
 
-    box-sizing:border-box;
+    transition:.3s;
 
 }
 
-.letterGif {
-    width: 120px;
-    height: auto;
-    display: block;
-    margin: 15px auto 0;
+.letterGif:hover{
+
+    transform:scale(1.08);
+
 }
 
 .cake{
 
-    font-size:90px;
+    font-size:120px;
 
-    margin:25px;
+    animation:pop .8s;
+
+}
+
+@keyframes pop{
+
+    from{
+
+        transform:scale(0);
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+    }
 
 }
 
