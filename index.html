@@ -35,10 +35,9 @@ body{
 }
 
 .container{
-
-    width:90%;
+    width:95%;
     max-width:700px;
-
+    margin:auto;
 }
 
 .page{
@@ -317,18 +316,20 @@ button:hover{
 .letter{
 
     background:white;
-
     color:#333;
 
-    padding:40px;
+    width:100%;
+    max-width:600px;
+
+    margin:0 auto;
+
+    padding:30px;
 
     border-radius:18px;
 
-    max-width:600px;
-
-    margin:auto;
-
     line-height:1.8;
+
+    box-sizing:border-box;
 
 }
 
@@ -373,6 +374,54 @@ button:hover{
     to{
 
         transform:translateY(110vh) rotate(720deg);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .page{
+
+        padding:25px 18px;
+
+    }
+
+    .letter{
+
+        padding:20px;
+
+    }
+
+    h1{
+
+        font-size:2rem;
+
+    }
+
+    h2{
+
+        font-size:1.5rem;
+
+    }
+
+    .moon{
+
+        width:80px;
+        height:80px;
+        right:25px;
+
+    }
+
+    .letterGif{
+
+        width:45px;
 
     }
 
@@ -477,8 +526,6 @@ button:hover{
 
     </section>
 
-</div>
-
 <section id="letterPage" class="page hidden">
 
     <div class="letter">
@@ -517,6 +564,8 @@ button:hover{
     </button>
 
 </section>
+
+</div>
 
 <script>
     let current = 0;
