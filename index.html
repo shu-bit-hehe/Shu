@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Across the Sea 🌙</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Georgia,serif;
+
+    background:linear-gradient(
+        #081229,
+        #122447,
+        #1d3557
+    );
+
+    color:white;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:700px;
+
+}
+
+.page{
+
+    text-align:center;
+
+    padding:45px;
+
+    background:rgba(255,255,255,.10);
+
+    border-radius: 22px ;
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.35);
+
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+h1{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+h2{
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+}
+
+.subtitle{
+
+    margin-bottom:40px;
+
+    color:#d7e4ff;
+
+    line-height:1.7;
+
+}
+
+p{
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+button{
+
+    background:white;
+
+    color:#102544;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 8px 20px rgba(255,255,255,.35);
+
+
+}
+
+/* ---------- SKY ---------- */
+
+.sky{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+}
+
+/* ---------- MOON ---------- */
+
+.moon{
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:#fff7d6;
+
+    top:50px;
+    right:80px;
+
+    box-shadow:
+        0 0 30px #fff7d6,
+        0 0 70px #fff7d6;
+
+}
+
+/* ---------- STARS ---------- */
+
+.star{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:twinkle 2.5s infinite;
+}
+
+.s1{top:15%;left:10%;}
+.s2{top:28%;left:30%;}
+.s3{top:12%;left:55%;}
+.s4{top:20%;left:75%;}
+.s5{top:35%;left:15%;}
+.s6{top:42%;left:50%;}
+.s7{top:18%;left:90%;}
+.s8{top:45%;left:80%;}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+
+}
+
+/* ---------- OCEAN ---------- */
+
+.ocean{
+
+    position:fixed;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:120px;
+
+    background:linear-gradient(
+        #2b6cb0,
+        #1d4e89
+    );
+
+    animation:wave 6s ease-in-out infinite;
+
+    z-index:-1;
+
+}
+
+@keyframes wave{
+
+    0%,100%{
+        border-radius:0;
+    }
+
+    50%{
+        border-radius:60% 40% 0 0;
+    }
+
+}
+
+/* ---------- PAGE ANIMATION ---------- */
+
+.page{
+
+    animation:fade .8s;
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Boat */
+
+.boat{
+
+    position:fixed;
+
+    bottom:80px;
+
+    left:-80px;
+
+    font-size:45px;
+
+    animation:sail 20s linear infinite;
+
+    z-index:-1;
+
+}
+
+@keyframes sail{
+
+    from{
+
+        left:-80px;
+
+    }
+
+    to{
+
+        left:110%;
+
+    }
+
+}
+
+/* Envelope */
+
+.envelope{
+
+    font-size:80px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.envelope:hover{
+
+    transform:scale(1.15) rotate(-8deg);
+
+}
+
+/* Letter */
+
+.letter{
+
+    background:white;
+
+    color:#333;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    max-width:600px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
+
+.letterGif {
+    width: 60px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.cake{
+
+    font-size:90px;
+
+    margin:25px;
+
+}
+
+.birthdayMessage{
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+}
+
+.confetti{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:10px;
+
+    height:16px;
+
+    animation:fall 5s linear forwards;
+
+}
+
+@keyframes fall{
+
+    to{
+
+        transform:translateY(110vh) rotate(720deg);
+
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+<div class="sky">
+    <div class="boat">⛵</div>
+    <div class="moon"></div>
+
+    <div class="star s1"></div>
+    <div class="star s2"></div>
+    <div class="star s3"></div>
+    <div class="star s4"></div>
+    <div class="star s5"></div>
+    <div class="star s6"></div>
+    <div class="star s7"></div>
+    <div class="star s8"></div>
+</div>
+
+<div class="container">
+
+    <!-- Landing -->
+    <section id="landing" class="page">
+
+        <h1>Happy Birthday, Kyra 🎂</h1>
+
+        <p class="subtitle">
+            A little journey from one side of the sea
+            to the other.
+        </p>
+
+        <button onclick="nextPage()">
+            Begin Journey →
+        </button>
+
+    </section>
+
+
+    <!-- Story Page 1 -->
+
+    <section id="page1" class="page hidden">
+
+        <h2>One Year.</h2>
+
+        <p>
+            It's already been a year since we met again.
+            It was too fast for us lmao.
+        </p>
+
+        <button onclick="nextPage()">
+            Continue →
+        </button>
+
+    </section>
+
+
+    <!-- Story Page 2 -->
+
+    <section id="page2" class="page hidden">
+
+        <h2>Across the Sea</h2>
+
+        <p>
+            Different countries.
+
+            Different time zones.
+
+            No contact for some years.
+
+            Yet somehow...
+            we still found a way :D
+        </p>
+
+        <button onclick="nextPage()">
+            Continue →
+        </button>
+
+    </section>
+
+
+    <!-- Story Page 3 -->
+
+    <section id="page3" class="page hidden">
+
+    <h2>A Little Letter</h2>
+
+    <p>
+        I made a little program for ya again for your birthday :3
+    </p>
+
+    <div class="envelope" onclick="openLetter()">
+        💌
+    </div>
+
+    <p style="font-size:0.9rem;">
+        Click the envelope
+    </p>
+
+    </section>
+
+</div>
+
+<section id="letterPage" class="page hidden">
+
+    <div class="letter">
+
+        <h2>Dear Kyra,</h2>
+
+        <p id="typing"></p>
+
+        <button onclick="nextLetter()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+<section id="finalPage" class="page hidden">
+
+    <h1>🎉 Happy Birthday, Kyra! 🎉</h1>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <p class="birthdayMessage">
+        May this year be better every second for you, 
+        and give all the happiness you deserve.
+        <br><br>
+        Thank you for being my friend.
+        Forever grateful for you.
+    </p>
+
+    <button onclick="restartJourney()">
+        🔄 Replay Journey
+    </button>
+
+</section>
+
+<script>
+    let current = 0;
+
+const pages = [
+    "landing",
+    "page1",
+    "page2",
+    "page3",
+    "letterPage",
+    "finalPage"
+];
+
+function nextPage(){
+
+    document
+        .getElementById(pages[current])
+        .classList.add("hidden");
+
+    current++;
+
+    if(current < pages.length){
+
+        document
+            .getElementById(pages[current])
+            .classList.remove("hidden");
+
+    }
+
+}
+
+/* ---------- Letter ---------- */
+
+const letters = [
+{
+    text: "Happy Birthday, Kyra! 🎂",
+    gif: "https://media.tenor.com/l6qT63jojf4AAAAi/embeokitty.gif"
+},
+{
+    text: "You are one heck of a girl (in a good way :3).",
+    gif: "https://media.tenor.com/THsqzKJ0oHwAAAAi/hello-kitty.gif"
+},
+{
+    text: "I'm really, really grateful that we found our way back again.",
+    gif: "https://media.tenor.com/D8qSHs5rZckAAAAi/hello-kitty.gif"
+},
+{
+    text: "I hope this birthday brings you lots of happiness. You deserve it the most in the world.",
+    gif: "https://media.tenor.com/l6qT63jojf4AAAAi/embeokitty.gif"
+},
+{
+    text: "Thank you for being you.\n\n— Shu ⚔️",
+    gif: "https://media.tenor.com/mwc_eB6lAL0AAAAi/hello-kitty.gif"
+}
+];
+
+let line = 0;
+
+function openLetter(){
+
+    document
+        .getElementById("page3")
+        .classList.add("hidden");
+
+    document
+        .getElementById("letterPage")
+        .classList.remove("hidden");
+
+    typeWriter();
+
+}
+
+function nextLetter(){
+
+    line++;
+
+    if(line < letters.length){
+
+        typeWriter();
+
+    }
+    else{
+
+        document
+            .getElementById("letterPage")
+            .classList.add("hidden");
+
+        document
+            .getElementById("finalPage")
+            .classList.remove("hidden");
+
+        launchConfetti();
+
+    }
+
+}
+
+function launchConfetti(){
+
+    for(let i = 0; i < 120; i++){
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left = Math.random()*100 + "vw";
+
+        piece.style.animationDelay = Math.random()*3 + "s";
+
+        piece.style.background =
+            `hsl(${Math.random()*360},90%,65%)`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(()=>{
+            piece.remove();
+        },5000);
+
+    }
+
+}
+
+function restartJourney(){
+
+    location.reload();
+
+}
+
+  function typeWriter(){
+
+    let i = 0;
+
+    let txt = letters[line].text;
+
+    let gif = letters[line].gif;
+
+    let target = document.getElementById("typing");
+
+    target.innerHTML = "";
+
+    function typing(){
+
+        if(i < txt.length){
+
+            target.innerHTML += txt.charAt(i);
+
+            i++;
+
+            setTimeout(typing,35);
+
+        }
+        else{
+
+            target.innerHTML +=
+            `<br><br><img src="${gif}" class="letterGif">`;
+
+        }
+
+    }
+
+    typing();
+
+}
+
+</script>
+
+<div class="ocean"></div>
+</body>
+
+</html>
